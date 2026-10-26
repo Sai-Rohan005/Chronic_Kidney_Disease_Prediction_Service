@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: CKD_PREDICTION
+
+server:
+  port: 8084
+
+
+mongodb:
+  uri: ${MONGODB_URI:mongodb://localhost:27017/}
+  database: ${MONGODB_DATABASE:CKD_JAVA}
+
+data:
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+
+ckd-prediction:
+  tabular-url: ${CKD_TABULAR_PREDICTION_URL:http://localhost:8001/routes/tab_predict}
+  image-url: ${CKD_IMAGE_PREDICTION_URL:http://localhost:8001/routes/unet_predict}
+
+appointment:
+  appointment-url: ${APPOINTMENT_CLIENT_URL:${Appointment_client_Url:http://localhost:8082/appointments/getappointment}}
+
+report:
+  report-url: ${REPORT_CLIENT_URL:${Report_client_Url:http://localhost:8083/reports/store_report}}
